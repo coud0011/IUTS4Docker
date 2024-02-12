@@ -1,6 +1,23 @@
 # Initiation à docker
 ## Auteur
 ```Axel COUDROT```
+
+
+## Table des matière
+- [Début des séances](#a-chaque-début-de-séance)
+- [Informations importantes](#informations-importantes)
+- [TP2](#tp2)
+- [TP3](#tp3)
+- [TP4](#tp4)
+- [TP5](#tp5)
+- [TP6](#tp6)
+- [TP7](#tp7)
+- [TP8](#tp8)
+- [TP9](#tp9)
+- [TP10](#tp10)
+- [TP11](#tp11)
+- [TP12](#tp12)
+- [TP13](#tp13)
 ## A chaque début de séance :
 ```bash
 cd /working/coud0011/
@@ -14,7 +31,20 @@ Si nécessaire :
 /home/Users/coud0011/bin/docker-clean --all
 ```
 
+## Informations importantes
+
+- Lorsque vous voudrez vous connectez au serveur bd maria db (lorsque ce sera fait notamment à partir de [docker-compose](#tp5)), vous devrez vous connecter avec :
+
+| Système | MySQL |
+| :--------------- |:---------------:| 
+| Serveur | my-mariadb |
+| Utilisateur | root |
+| Mot de passe | root |
+| Base de données | vide |
+
+
 ## TP2
+ *Retour à la [table des matière](#table-des-matière)*
 ### Commandes à savoir
 - Pour lancer un containeur
 ```bash
@@ -63,6 +93,7 @@ docker attach <nom du container lancé>
 
 
 ## TP3
+ *Retour à la [table des matière](#table-des-matière)*
 ### Commandes à savoir
 - Pour accéder au logs d'un container (si besoin il est possible de le faire dynamiquement avec --follow avant le nom du container)
 ```bash
@@ -86,6 +117,7 @@ docker container prune
 ```
 
 ## TP4
+ *Retour à la [table des matière](#table-des-matière)*
 
 - Utilisation de :
 ```bash
@@ -96,6 +128,7 @@ docker run -ti --name=my-ubuntu --volume /working/<votre_login>/s4-docker/partag
 
 
 ## TP5
+ *Retour à la [table des matière](#table-des-matière)*
 ### Commandes à savoir
 - Pour créer notre propre pont réseau ici nommé db-network
 ```bash
@@ -121,3 +154,56 @@ docker network inspect db-network
  ![connexion à la bd dans l'interface web](image-1.png)
 
  - Par défault, lors de la création du container, le volume et le network peuvent avoir du mal à coexister à cause d'un problème de droit (sous windows, il n'y a pas ce problème)
+
+
+ ## TP6
+ *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+ - Nous utiliserons désormais un fichier de configuration YAML nommé docker-compose pour stocker les information nécéssaires pour lancer un ensemble de conteneurs qui seront sur un même réseau créé automatiquement. Il sera possible de lancer la création à l'aide de la [première commande](#commandes-c3a0-savoir-3).
+ ### Commandes à savoir
+ - Commande pour lancez la pile de conteneur en mode détachée
+ ```bash
+ docker-compose up -d
+ ```
+ - Commande pour se connecter au serveur de bd avec un terminal de commande
+ ```bash
+ docker-compose exec my-mariadb bash
+ ```
+ *Cette commande est équivalente à la commande docker :*
+
+    exec -it my-mariadb bash
+
+- Vous pourrez dès lors listez les bases de données présentes sur ce serveur en tapant la commande suivante dans le terminal précédement ouvert
+```bash
+mariadb-show -p
+```
+*Le mot de passe demandé est [celui de l'adminstrateur de la BD](#informations-importantes).*
+
+
+
+## TP7
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP8
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP9
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP10
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP11
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP12
+ *Retour à la [table des matière](#table-des-matière)*
+
+
+## TP13
+ *Retour à la [table des matière](#table-des-matière)*

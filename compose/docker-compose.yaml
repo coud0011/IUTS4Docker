@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  my-mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+    - db-data:/var/lib/mysql
+  my-adminer:
+    image: adminer
+    ports:
+      - 7080:8080
+volumes:
+  db-data:
