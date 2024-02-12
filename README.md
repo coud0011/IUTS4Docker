@@ -183,27 +183,57 @@ mariadb-show -p
 
 ## TP7
  *Retour à la [table des matière](#table-des-matière)*
-
+ ### Nouvelle(s) Méchanique(s)
+- Utilisation d'un Dockerfile pour configurer la construction d'une image. Dans notre cas, nous en créons [une](apache/Dockerfile) qui permettra de lancer les serveur web Apache.
+ ### Commandes à savoir
+- Pour créer l'image à partir du Dockerfile : 
+```bash
+docker build --tag=<votre_login>/apache ./apache
+```
 
 ## TP8
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
 
 
 ## TP9
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
 
 
 ## TP10
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
 
 
 ## TP11
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
 
 
 ## TP12
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
 
 
 ## TP13
  *Retour à la [table des matière](#table-des-matière)*
+ ### Nouvelle(s) Méchanique(s)
+
+ ### Commandes à savoir
+
