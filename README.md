@@ -9,6 +9,10 @@ mkdir s4-doker; cd s4-docker
 git clone https://iut-info.univ-reims.fr/gitlab/coud0011/s4-docker.git
 docker login
 ```
+Si nécessaire :
+```bash
+/home/Users/coud0011/bin/docker-clean --all
+```
 
 ## TP2
 ### Commandes à savoir
@@ -80,3 +84,12 @@ docker container create <nom de l'image>
 ```
 docker container prune
 ```
+
+## TP4
+
+- Utilisation de :
+```
+docker run -ti --name=my-ubuntu --volume /working/<votre_login>/s4-docker/partage:/myData ubuntu /bin/bash
+```
+- A la racine du container, les fichier ne persistent pas en dehors de celui-ci, ils ne sont présent que à l'intérieur. Pour accéder à des fichier dans la machine hôte il faut utiliser le dossier spécifié lors de la création, dans notre exemple : /myData
+![Partage de fichiers entre le container et l'hôte](image.png)
