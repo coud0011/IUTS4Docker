@@ -63,3 +63,9 @@ RUN chmod +rx /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]
+
+# Phase Nginx
+FROM nginx:$NGINX_VERSION-alpine AS contacts_nginx
+COPY docker/nginx/conf.d /etc/nginx/conf.d
+
+WORKDIR /srv/contacts/public

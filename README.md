@@ -208,6 +208,8 @@ Une fois unzip dans le dossier de l'application, son contenu (un dossier [docker
 
 Si vous regardez le [Dockerfile](symfony-contacts/Dockerfile), vous remarquerez que l'image importée est [php:8.1-fpm-alpine](https://hub.docker.com/_/php). [8.1](https://www.php.net/releases/8.1/en.php) étant la version de php, [-fpm](https://fpm.readthedocs.io/en/v1.15.1/) pour le developpement, et [-alpine](https://www.alpinelinux.org/) pour récupérer la version la plus brut de linux. Et que cette image est renommée contacts_php.
 
+A la ligne 67 de [Dockerfile](symfony-contacts/Dockerfile) vous trouverez une nouvelle phase, celle-ci sous nginx afin de mettre en place la possibilité d'utiliser du javascript, du css ou des images.
+
  ### Commandes à savoir
 
  - Dans notre exemple pour créer l'image à partir du [Dockerfile](symfony-contacts/Dockerfile) il suffit de lancer la commande suivante :
@@ -216,6 +218,11 @@ Si vous regardez le [Dockerfile](symfony-contacts/Dockerfile), vous remarquerez 
  ```
  *Comme avant, il faut remplacer $USER par %USERNAME% sous windows*
 
+ - Pour la deuxième phase, afin de créer l'image liée à nginx nommée dans notre cas <votre_login>/symfony-contacts-nginx, il faut executer cette commande : 
+ ```bash
+ docker build --tag $USER/symfony-contacts-nginx --target contacts_nginx .
+ ```
+  *Comme avant, il faut remplacer $USER par %USERNAME% sous windows*
 
 
 ## TP9
