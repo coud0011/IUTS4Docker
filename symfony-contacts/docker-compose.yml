@@ -1,21 +1,21 @@
-version: '3'
+version: '3.4'
 
 services:
-###> doctrine/doctrine-bundle ###
-  database:
-    image: postgres:${POSTGRES_VERSION:-15}-alpine
+  db:
+    image: mariadb
+    restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
-      # You should definitely change the password in production
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
-      POSTGRES_USER: ${POSTGRES_USER:-app}
+      # Informations à modifier à votre gré
+      MYSQL_USER: coud0011
+      MYSQL_PASSWORD: 1Mot2Pass
+      MYSQL_ROOT_PASSWORD: secretR00tPassw0rd
+      MYSQL_DATABASE: dbDockerContacts
+  php:
+    build:
+      context: .
+      dockerfile: contacts_php
+    depends_on:
+      - db
     volumes:
-      - database_data:/var/lib/postgresql/data:rw
-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./docker/db/data:/var/lib/postgresql/data:rw
-###< doctrine/doctrine-bundle ###
-
-volumes:
-###> doctrine/doctrine-bundle ###
-  database_data:
-###< doctrine/doctrine-bundle ###
+      - .:/srv/contacts
+      - docker/php/conf.d/dev.ini:/usr/local/etc/php/config.ini

@@ -69,3 +69,6 @@ FROM nginx:$NGINX_VERSION-alpine AS contacts_nginx
 COPY docker/nginx/conf.d /etc/nginx/conf.d
 
 WORKDIR /srv/contacts/public
+
+# Symfony BD
+
