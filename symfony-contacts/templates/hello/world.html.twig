@@ -1,0 +1,12 @@
+{# templates/hello/world.html.twig #}
+{% extends '_contacts.html.twig' %}
+
+{% block title %}Hello {{ name|capitalize }}!{% endblock %}
+{% block body %}
+    <h1>Hello {{ name|capitalize }}!</h1>
+    {% for n in 1..10 %}
+        <div style="color: {{ cycle(['red', 'green'], loop.index0) }}">
+            Hello {{ name|capitalize }}! ({{ n|format_number({format_width: 2}) }})
+        </div>
+    {% endfor %}
+{% endblock %}

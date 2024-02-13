@@ -1,0 +1,8 @@
+.lastname{
+    font-weight: bold;
+    font-variant-caps: petite-caps;
+}
+
+a>span, a{
+    color: lightyellow;
+}

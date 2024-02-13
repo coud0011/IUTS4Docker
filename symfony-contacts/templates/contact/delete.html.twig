@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppression de {{ contact.lastname }}, {{ contact.firstname }}</h1>
+    {{ form_start(form, {'attr': {'class': 'd-flex'}}) }}
+    {{ form_row(form.goback, { 'label': 'Annuler', 'attr': {'class': 'btn btn-secondary'} }) }}
+    {{ form_row(form.delete, { 'label': 'Supprimer', 'attr': {'class': 'btn btn-primary'} }) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block title %}
+Suppression de {{ contact.lastname }}, {{ contact.firstname }}
+{% endblock %}
+

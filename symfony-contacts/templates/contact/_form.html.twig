@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ submit_label=='Créer'?'Création d`un nouveau contact':"Édition de #{contact.lastname}, #{contact.firstname}" }}</h1>
+    {{ form_start(form, {'attr': {'class': 'w-auto p-3 container-lg'}}) }}
+    {{ form_row(form.firstname, {'label': 'Prénom ', 'attr': {'placeholder': 'Prenom', 'class': 'd-flex w-auto p-3'}}) }}
+    {{ form_row(form.lastname, {'label': 'Nom ', 'attr': {'placeholder': 'Nom', 'class': 'd-flex w-auto p-3'}}) }}
+    {{ form_row(form.email, {'label': 'Email ', 'attr': {'placeholder': 'exemple@exemple.ex', 'class': 'd-flex w-auto p-3'}}) }}
+    {{ form_row(form.phone, {'label': 'Téléphone ', 'attr': {'placeholder': 'Numero de Telephone', 'class': 'd-flex w-auto p-3'}}) }}
+    {{ form_row(form.category, {'label': 'Catégorie ', 'attr': {'placeholder': 'Categorie', 'class': 'd-flex w-auto p-3'}}) }}
+    <input type="submit" class="w-auto p-3 btn btn-primary btn-lg btn-block" value="{{ submit_label }}">
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block title %}
+    {{ submit_label=='Créer'?'Création d`un nouveau contact':"Édition de #{contact.lastname}, #{contact.firstname}" }}
+{% endblock %}
+

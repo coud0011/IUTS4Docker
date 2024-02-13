@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories</h1>
+    <ul>
+        {% for key, line in categories %}
+            <li class="categories"><span class="badge bg-primary"><a href="{%  set category_id ={id : line['category'].id} %}{{ path('app_category_id', category_id)}}">{{ line['category'].name }}</a>  <span class="badge bg-secondary">{{ line['count'] }}</span></span></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
