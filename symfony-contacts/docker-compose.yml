@@ -19,3 +19,15 @@ services:
     volumes:
       - .:/srv/contacts
       - docker/php/conf.d/dev.ini:/usr/local/etc/php/config.ini
+  
+  web:
+    build:
+      context: .
+      target: contacts_php
+    depends_on:
+      - php
+    volumes:
+      - public:/srv/contacts/public:ro
+    ports:
+      - target: 80
+        published: 8080
