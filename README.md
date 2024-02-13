@@ -199,9 +199,22 @@ Il est alors possible de [déposer l'image <votre_login>/hello_docker](https://d
 
 ## TP8
  *Retour à la [table des matière](#table-des-matière)*
+
  ### Nouvelle(s) Méchanique(s)
 
+Mise en place d'une vraie application avec le projet symfony-contacts développé en S3. Il s'agit d'une application web de gestion de contacts avec comptes, modifications des contacts et easy admin en utilisant symfony. Vous pourrez trouver le zip docker-assets.zip à la [racine du projet](.). 
+
+Une fois unzip dans le dossier de l'application, son contenu (un dossier [docker](symfony-contacts/docker) contenant les assets nécessaires ainsi que le fichier [.dockerignore](symfony-contacts/.dockerignore) définissant les fichiers et répertoires à exclure du contexte de traitement de Docker) sera associé avec un [Dockerfile](symfony-contacts/Dockerfile) afin de créer un container pour mettre en place l'application.
+
+Si vous regardez le [Dockerfile](symfony-contacts/Dockerfile), vous remarquerez que l'image importée est [php:8.1-fpm-alpine](https://hub.docker.com/_/php). [8.1](https://www.php.net/releases/8.1/en.php) étant la version de php, [-fpm](https://fpm.readthedocs.io/en/v1.15.1/) pour le developpement, et [-alpine](https://www.alpinelinux.org/) pour récupérer la version la plus brut de linux. Et que cette image est renommée contacts_php.
+
  ### Commandes à savoir
+
+ - Dans notre exemple pour créer l'image à partir du [Dockerfile](symfony-contacts/Dockerfile) il suffit de lancer la commande suivante :
+ ```bash
+ docker build --tag $USER/symfony-contacts --target contacts_php .
+ ```
+ *Comme avant, il faut remplacer $USER par %USERNAME% sous windows*
 
 
 
