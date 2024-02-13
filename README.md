@@ -190,6 +190,12 @@ mariadb-show -p
 ```bash
 docker build --tag=<votre_login>/apache ./apache
 ```
+- Ce qui permet ensuite de démarrer un container basé sur cette image sans monter de volume (Utilisation de la variable d'environnement **$USER** définie par défaut dans linux et il faut mettre **%USERNAME%** sous windows)
+```bash
+docker run --detach --publish 8080:80 --name=hello-docker $USER/hello-docker
+```
+Désormais le serveur web est bien accessible à l'adresse http://localhost:8080.
+Il est alors possible de [déposer l'image <votre_login>/hello_docker](https://docs.docker.com/guides/walkthroughs/publish-your-image/) sur le [Hub Docker](https://hub.docker.com/).
 
 ## TP8
  *Retour à la [table des matière](#table-des-matière)*
