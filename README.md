@@ -281,9 +281,17 @@ docker-compose exec php composer db
  *Retour à la [table des matière](#table-des-matière)*
  ### Nouvelle(s) Méchanique(s)
 #### Cette partie est consacrée à la mise en production de notre projet.
-Nous avons donc ajouté deux nouvelles phases à la suite de notre [Dockerfile](symfony-contacts/Dockerfile). Une phase pour php en production (contacts_php_prod) et une phase pour nginx en prod ()
- ### Commandes à savoir
+Nous avons donc ajouté deux nouvelles phases à la suite de notre [Dockerfile](symfony-contacts/Dockerfile). Une phase pour php en production (contacts_php_prod) et une phase pour nginx en production (contacts_nginx_prod). Pour tester la validité de ces deux phases nous avons utilisées les deux commandes [ci-après](#commandes-c3a0-savoir-7).
 
+ ### Commandes à savoir
+ - Pour tester la mise en production (php)
+ ```bash
+docker build --tag $USER/symfony-contacts --target contacts_php_prod .
+ ```
+  - Pour tester la mise en production (nginx)
+ ```bash
+docker build --tag $USER/symfony-contacts --target contacts_php_prod .
+ ```
 
 
 ## TP11
