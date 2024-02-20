@@ -280,7 +280,8 @@ docker-compose exec php composer db
 ## TP10
  *Retour à la [table des matière](#table-des-matière)*
  ### Nouvelle(s) Méchanique(s)
-
+#### Cette partie est consacrée à la mise en production de notre projet.
+Nous avons donc ajouté deux nouvelles phases à la suite de notre [Dockerfile](symfony-contacts/Dockerfile). Une phase pour php en production (contacts_php_prod) et une phase pour nginx en prod ()
  ### Commandes à savoir
 
 

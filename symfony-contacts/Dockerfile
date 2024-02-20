@@ -70,5 +70,39 @@ COPY docker/nginx/conf.d /etc/nginx/conf.d
 
 WORKDIR /srv/contacts/public
 
-# Symfony BD
+# Phase de production
 
+FROM contacts_php AS contacts_php_prod
+ARG APP_ENV=prod
+
+COPY ./composer.json ./
+COPY ./composer.lock ./
+COPY ./symfony.lock ./
+
+RUN set -eux; \
+    composer install --prefer-dist --no-dev --no-scripts --no-progress; \
+    composer clear-cache
+
+COPY .env ./
+
+RUN composer dump-env prod
+
+COPY ./bin ./bin
+COPY ./config ./config
+COPY ./migrations ./migrations
+COPY ./public ./public
+COPY ./src ./src
+COPY ./templates ./templates
+
+RUN find config migrations public src templates -type d -exec chmod a+rx {} \;
+RUN find config migrations public src templates -type f -exec chmod a+r {} \;
+
+RUN set -eux; \
+mkdir -p var/cache var/log; \
+composer dump-autoload --classmap-authoritative --no-dev; \
+composer run-script --no-dev post-install-cmd; \
+chmod +x bin/console; sync
+
+# Phase Nginx Prod
+FROM contacts_nginx AS contacts_nginx_prod
+COPY --from=contacts_php_prod /srv/contacts/public /srv/contacts/public
