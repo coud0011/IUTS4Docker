@@ -255,6 +255,13 @@ docker-compose exec php composer db
 ```
 Et si tout se passe bien, à ce moment là, l'application sera accessible à l'adresse : [http://127.0.0.1:8080](http://127.0.0.1:8080).
 
+Par la suite, nous avons ajouté phpMyAdmin pour avoir une interface de gestion de base de donnée pour vérifier que les opérations se passent bien.
+Celle-ci est accessible sur le port [8085](http://127.0.0.1:8085)
+
+Pour vous connecter une fois sur la page de phpMyAdmin, vous aurez à laisser le champ "Serveur" vide, et à remplir les autres avec les informations situées dans le fichier [docker-compose.yml](symfony-contacts/docker-compose.yml), actuellement celles-ci sont :
+- Identifiant : coud0011
+- Mot de Passe : 1Mot2Pass
+
  ### Commandes à savoir
 - Voici la commande permettant d'obtenir un container similaire à celui de la phase contacts_php afin de comprendre notamment la structure du container :
 ```bash

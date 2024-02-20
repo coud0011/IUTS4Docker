@@ -10,6 +10,15 @@ services:
       MYSQL_PASSWORD: 1Mot2Pass
       MYSQL_ROOT_PASSWORD: secretR00tPassw0rd
       MYSQL_DATABASE: dbDockerContacts
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8085:80
+    environment:
+      - PMA_ARBITRARY=1
+
   php:
     build:
       context: .
@@ -27,7 +36,7 @@ services:
     depends_on:
       - php
     volumes:
-      - ./public:/srv/contacts/public:ro
+      - ./public:/srv/contacts/public/:ro
     ports:
       - target: 80
         published: 8080
