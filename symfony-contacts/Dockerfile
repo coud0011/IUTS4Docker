@@ -75,7 +75,7 @@ WORKDIR /srv/contacts/public
 FROM contacts_php AS contacts_php_prod
 ARG APP_ENV=prod
 
-COPY ./composer.json ./
+COPY ./composer.json /srv/contacts/
 COPY ./composer.lock ./
 COPY ./symfony.lock ./
 

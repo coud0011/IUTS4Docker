@@ -297,6 +297,12 @@ docker build --tag $USER/symfony-contacts --target contacts_php_prod .
 ## TP11
  *Retour à la [table des matière](#table-des-matière)*
  ### Nouvelle(s) Méchanique(s)
+ Tout d'abord nous avons build nos images :
+ ```bash
+docker build --target contacts_php_prod -t coud0011/demo-contacts:1.0.0 .
+docker build --target contacts_nginx_prod -t coud0011/demo-contacts-web:1.0.0 .
+ ```
+ Dans le [dossier avec le docker file](symfony-contacts)
 Nous avons dans cette partie mis en place un nouvel environnement et un nouveau fichier docker-compose pour la production disponible dans le dossier [production](./symfony-contacts/production/).
  ### Commandes à savoir
  - Pour lancer le serveur en mode prod : se mettre dans le bon [repertoire](./symfony-contacts/production/) et lancer cette commande :
