@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  db:
+    image: mariadb:10.2.25
+    restart: always
+    environment:
+      # Informations à modifier à votre gré
+      MYSQL_USER: ${MYSQL_USER:?invalidUser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?invalidPassword}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?invalidRootPassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?invalidDatabase}
+
+  php:
+    image: ${PHP_IMAGE:?invalidPhpImage}:${APP_VERSION:?invalidAppVersion}
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./:/srv/contacts
+      - ./docker/php/conf.d/config.ini:/usr/local/etc/php/conf.d/dev.ini
+  
+  web:
+    build:
+      context: .
+      target: contacts_nginx
+    depends_on:
+      - php
+    volumes:
+      - ./public:/srv/contacts/public/:ro
+    ports:
+      - target: 80
+        published: 8080

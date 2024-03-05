@@ -230,7 +230,7 @@ A la ligne 67 de [Dockerfile](symfony-contacts/Dockerfile) vous trouverez une no
  ### Nouvelle(s) Méchanique(s)
  Nous abordons maintenant la configuration du [Docker Compose](symfony-contacts/docker-compose.yml) de développement.
  Celui-ci contient les informations pour les services suivants :
- - **Base de Données** : nommée db il s'agit d'une [image de MariaDB](https://hub.docker.com/_/mariadb) dont la configuration de l'adresse se fait dans le [.env.local](symfony-contacts/.env.local). Dans l'adresse entrée, vous pouvez retrouver des variables d'environnement définies dans le [Docker Compose](symfony-contacts/docker-compose.yml), celles-ci peuvent être modifier afin qu'elles correspondent à vos informations personnelles.
+ - **Base de Données** : nommée db il s'agit d'une [image de MariaDB](https://hub.docker.com/_/mariadb) dont la configuration de l'adresse se fait dans le [.env](symfony-contacts/.env). Dans l'adresse entrée, vous pouvez retrouver des variables d'environnement définies dans le [Docker Compose](symfony-contacts/docker-compose.yml), celles-ci peuvent être modifier afin qu'elles correspondent à vos informations personnelles.
 - **PHP** : il s'agit du service pouvant faire le lien entre la base de donnée et notre phase contacts_php. Dans le container associé, nous avons créé un volume permettant de lier la [racine du projet](.) au répertoire /srv/contacts ainsi que celui permettant de surcharger le fichier config.ini de votre image avec le fichier [dev.ini](docker/php/conf.d/dev.ini) présent dans le [zip précédent](#tp8).
 Ce fichier de configuration spécifique pour le développement permet de réactiver le [rechargement du cache](https://www.php.net/manual/fr/opcache.configuration.php#ini.opcache.validate-timestamps) à chaque modification d'un fichier du projet. Nous avons récupérer le répertoire au sein du container pour config.ini à l'aide de la [commande ci-dessous](#commandes-c3a0-savoir-6).
 
@@ -297,8 +297,12 @@ docker build --tag $USER/symfony-contacts --target contacts_php_prod .
 ## TP11
  *Retour à la [table des matière](#table-des-matière)*
  ### Nouvelle(s) Méchanique(s)
-
+Nous avons dans cette partie mis en place un nouvel environnement et un nouveau fichier docker-compose pour la production disponible dans le dossier [production](./symfony-contacts/production/).
  ### Commandes à savoir
+ - Pour lancer le serveur en mode prod : se mettre dans le bon [repertoire](./symfony-contacts/production/) et lancer cette commande :
+ ```bash
+docker compose up -d
+ ```
 
 
 
